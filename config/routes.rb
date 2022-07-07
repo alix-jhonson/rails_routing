@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
- match 'photos', to: 'photos#show', via: [:get, :post]
- match 'photos', to: 'photos#show', via: :all
-
+get 'photos/:id', to: 'photos#show', constraints: { id: /[A-Z]\d{5}/ }
+get 'photos/:id', to: 'photos#show', id: /[A-Z]\d{5}/
+get '/:id', to: 'articles#show', constraints: { id: /^\d/ }
+get '/:id', to: 'articles#show', constraints: { id: /\d.+/ }
+get '/:username', to: 'users#show'
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
