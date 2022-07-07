@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-esources :videos, param: :identifier
-videos GET  /videos(.:format)                  videos#index
-            POST /videos(.:format)                  videos#create
- new_videos GET  /videos/new(.:format)              videos#new
-edit_videos GET  /videos/:identifier/edit(.:format) videos#edit
+assert_generates '/photos/1', { controller: 'photos', action: 'show', id: '1' }
+assert_generates '/about', controller: 'pages', action: 'about'
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
