@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
- get ':controller(/:action(/:id))'
+ get ':controller/:action/:id/:user_id'
+
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
