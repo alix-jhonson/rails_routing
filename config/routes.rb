@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  match '/application.js', to: Sprockets, via: :all
- match '/admin', to: AdminApp, via: :all
- mount AdminApp, at: '/admin'
+  root to: 'pages#main'
+   root 'pages#main'
+   namespace :admin do
+  root to: "admin#index"
+end
 
-
+root to: "home#index"
 
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
