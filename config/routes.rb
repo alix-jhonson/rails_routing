@@ -1,13 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'pages#main'
-   root 'pages#main'
-   namespace :admin do
-  root to: "admin#index"
-end
-
-root to: "home#index"
-
+  get 'こんにちは', to: 'welcome#index'
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
