@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-assert_recognizes({ controller: 'photos', action: 'show', id: '1' }, '/photos/1')
-assert_recognizes({ controller: 'photos', action: 'create' }, { path: 'photos', method: :post })
-
+assert_routing({ path: 'photos', method: :post }, { controller: 'photos', action: 'create' })
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
