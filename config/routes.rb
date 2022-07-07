@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
 
-get 'profile', to: 'users#show'
+namespace :admin do
+  resources :articles, :comments
+end
+
+scope module: 'admin' do
+  resources :articles, :comments
+end
+
+resources :articles, module: 'admin'
+
+scope '/admin' do
+  resources :articles, :comments
+end
+resources :articles, path: '/admin/articles'
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
