@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
 
- resources :photos do
-  collection do
-    get 'search'
-  end
-
-  resources :photos do
-  get 'search', on: :collection
+ resources :comments do
+  get 'preview', on: :new
 end
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
