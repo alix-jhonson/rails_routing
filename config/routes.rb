@@ -1,19 +1,8 @@
 Rails.application.routes.draw do
 
-namespace :admin do
-  resources :articles, :comments
-end
+resources :magazines do
+  resources :ads
 
-scope module: 'admin' do
-  resources :articles, :comments
-end
-
-resources :articles, module: 'admin'
-
-scope '/admin' do
-  resources :articles, :comments
-end
-resources :articles, path: '/admin/articles'
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
