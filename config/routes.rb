@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-get 'photos', to: 'photos#index', constraints: { subdomain: 'admin' }
-namespace :admin do
-  constraints subdomain: 'admin' do
-    resources :photos
-  end
+get '*path', to: 'blacklist#index',
+    constraints: BlacklistConstraint.new
+
+    get '*path', to: 'blacklist#index',
+    constraints: lambda { |request| Blacklist.retrieve_ips.include?(request.remote_ip)
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
