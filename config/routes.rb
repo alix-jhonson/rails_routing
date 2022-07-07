@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-esources :photos, only: [:index, :show]
-resources :photos, except: :destroy
+  scope(path_names: { new: 'neu', edit: 'bearbeiten' }) do
+  resources :categories, path: 'kategorien'
+end
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
