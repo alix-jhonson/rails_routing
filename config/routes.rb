@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
- get 'exit', to: 'sessions#destroy', as: :logout
-get ':username', to: 'users#show', as: :user
+ match 'photos', to: 'photos#show', via: [:get, :post]
+ match 'photos', to: 'photos#show', via: :all
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
