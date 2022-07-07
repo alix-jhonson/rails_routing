@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
- resources :magazines do
-  resources :ads, as: 'periodical_ads'
-end
+esources :videos, param: :identifier
+videos GET  /videos(.:format)                  videos#index
+            POST /videos(.:format)                  videos#create
+ new_videos GET  /videos/new(.:format)              videos#new
+edit_videos GET  /videos/:identifier/edit(.:format) videos#edit
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
