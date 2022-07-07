@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
 
-resources :photos, path_names: { new: 'make', edit: 'change' }
+scope 'admin' do
+  resources :photos, as: 'admin_photos'
+end
+
+resources :photos
+
+scope 'admin', as: 'admin' do
+  resources :photos, :accounts
+end
+
+resources :photos, :accounts
+scope ':username' do
+  resources :articles
+end
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
