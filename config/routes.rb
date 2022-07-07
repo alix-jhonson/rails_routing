@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-resources :photos, :books, :videos
+get 'profile', to: 'users#show'
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
