@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-assert_generates '/photos/1', { controller: 'photos', action: 'show', id: '1' }
-assert_generates '/about', controller: 'pages', action: 'about'
- # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
-
+assert_recognizes({ controller: 'photos', action: 'show', id: '1' }, '/photos/1')
+assert_recognizes({ controller: 'photos', action: 'create' }, { path: 'photos', method: :post })
 
 
   # The priority is based upon order of creation: first created -> highest priority.
