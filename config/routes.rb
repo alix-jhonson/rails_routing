@@ -1,34 +1,27 @@
 Rails.application.routes.draw do
 
-esources :articles do
-  resources :comments, only: [:index, :new, :create]
+  concern :commentable do
+  resources :comments
 end
-resources :comments, only: [:show, :edit, :update, :destroy]
+
+concern :image_attachable do
+  resources :images, only: :index
+end
+
+resources :messages, concerns: :commentable
+
+resources :articles, concerns: [:commentable, :image_attachable]
+resources :messages do
+  resources :comments
+end
 
 resources :articles do
-  resources :comments, shallow: true
-end
-resources :articles, shallow: true do
   resources :comments
-  resources :quotes
-  resources :drafts
+  resources :images, only: :index
 end
-shallow do
-  resources :articles do
-    resources :comments
-    resources :quotes
-    resources :drafts
-  end
-end
-scope shallow_path: "sekret" do
-  resources :articles do
-    resources :comments, shallow: true
-  end
-end
-scope shallow_prefix: "sekret" do
-  resources :articles do
-    resources :comments, shallow: true
-  end
+
+namespace :articles do
+  concerns :commentable
 end
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
