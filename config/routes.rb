@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
 
- resources :photos, constraints: { id: /[A-Z][A-Z][0-9]+/ }
-constraints(id: /[A-Z][A-Z][0-9]+/) do
-  resources :photos
-  resources :accounts
+resources :photos, as: 'images'
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
