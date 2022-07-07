@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-get 'photos/:id', to: 'photos#show', constraints: { id: /[A-Z]\d{5}/ }
-get 'photos/:id', to: 'photos#show', id: /[A-Z]\d{5}/
-get '/:id', to: 'articles#show', constraints: { id: /^\d/ }
-get '/:id', to: 'articles#show', constraints: { id: /\d.+/ }
-get '/:username', to: 'users#show'
+get 'photos', to: 'photos#index', constraints: { subdomain: 'admin' }
+namespace :admin do
+  constraints subdomain: 'admin' do
+    resources :photos
+  end
+
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
