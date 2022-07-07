@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-get 'photos/*other', to: 'photos#unknown'
-get 'books/*section/:title', to: 'books#show'
-get '*a/foo/*b', to: 'test#index'
-get '*pages', to: 'pages#show', format: false
-get '*pages', to: 'pages#show', format: true
+get '/stories', to: redirect('/articles')
+get '/stories/:name', to: redirect('/articles/%{name}')
+
+get '/stories/:name', to: redirect { |path_params, req| "/articles/#{path_params[:name].pluralize}" }
+get '/stories', to: redirect { |path_params, req| "/articles/#{req.subdomain}" }
+
+
+
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
