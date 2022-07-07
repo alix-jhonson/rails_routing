@@ -1,17 +1,8 @@
 Rails.application.routes.draw do
 
-resources :books
+resources :photos, :books, :videos
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
-get 'book/list'
-get 'book/new'
-post 'book/create'
-patch'book/update'
-get 'book/list'
-get 'book/show'
-get 'book/edit'
-get 'book/delete'
-get 'book/update'
-get 'book/show_subjects'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
