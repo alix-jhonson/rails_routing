@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
- get 'photos/:id', to: 'photos#show'
- get 'photos/:id', to: 'photos#show', defaults: { format: 'jpg' }
+ get 'exit', to: 'sessions#destroy', as: :logout
+get ':username', to: 'users#show', as: :user
 
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
