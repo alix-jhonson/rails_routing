@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
- ActiveSupport::Inflector.inflections do |inflect|
-  inflect.irregular 'tooth', 'teeth'
+ resources :magazines do
+  resources :ads, as: 'periodical_ads'
 end
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
