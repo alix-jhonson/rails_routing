@@ -1,27 +1,11 @@
 Rails.application.routes.draw do
 
-  concern :commentable do
-  resources :comments
-end
-
-concern :image_attachable do
-  resources :images, only: :index
-end
-
-resources :messages, concerns: :commentable
-
-resources :articles, concerns: [:commentable, :image_attachable]
-resources :messages do
-  resources :comments
-end
-
-resources :articles do
-  resources :comments
-  resources :images, only: :index
-end
-
-namespace :articles do
-  concerns :commentable
+ resources :photos do
+  member do
+    get 'preview'
+  end
+resources :photos do
+  get 'preview', on: :member
 end
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
