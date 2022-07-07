@@ -1,20 +1,7 @@
 Rails.application.routes.draw do
 
-scope 'admin' do
-  resources :photos, as: 'admin_photos'
-end
-
-resources :photos
-
-scope 'admin', as: 'admin' do
-  resources :photos, :accounts
-end
-
-resources :photos, :accounts
-scope ':username' do
-  resources :articles
-end
-
+esources :photos, only: [:index, :show]
+resources :photos, except: :destroy
  # perfoming crud operations for running functions according to our need in controller may be defined at individual level  if we we are not using restful routing as line of code mentioned above.
 
 
